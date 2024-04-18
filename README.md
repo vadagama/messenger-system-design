@@ -16,6 +16,7 @@
 - [Message broker events](#message-broker-events)
 - [Data objects](#data-objects)
 
+This document is available in the following languages: [English](README.md), [Russian](README_RU.md)
 
 Basic messenger system design with two s tages of impletentation (local market and global market)
 
@@ -63,7 +64,7 @@ Client would like to start with a local market and then expand to a global marke
 
 # Capacity estimation and constraints
 ## Bandwidth
-Lets assume that we have 3M DAU and every user sends 10 messages per day. This means that we will have the following amount of requests:
+Lets assume that we have 3M DAU and every user sends 10 messages per day. We also have groups and channels. This means that we will have the following amount of requests:
 - Total personal messages per day: 3M * 100 = 300M
 - Total personal messages per second: 300M / 86400 = 3500 RPS * 2 (for reading and writing) = 7000 RPS
 
@@ -127,7 +128,7 @@ Here is a more detailed diagram of the components:
 - Load balancer will be used to distribute the load between all the services.
 - We could use Apache Kafka as a message broker. It is a distributed streaming platform that can handle trillions of events a day. And also we could use different patterns like pub/sub and queue using Kafka. The next benefit is that Kafka is a distributed log and we can store all events in Kafka for a long time (depending on retention time settings).
 - We could deploy all services in Docker containers and orchestrate them using Kubernetes. It can handle a large number of containers and scale them automatically depending our needs.
-- We could use PostgreSQL as a message storage. PostgreSQL is a NoSQL database that can store data in JSON-like documents. It is very fast and can handle a large amount of data. We can use it to store all messages.
+- For message storage we can use PostgreSQL. It is an RDBMS database that can store data in structured form and JSON documents. It is very fast and can handle large amounts of data. We can use it to store all messages.
 - For storing channels and groups data we also can use PostgreSQL and store all channels data in a separate collection in PostgreSQL.
 - We could use Redis as a session storage. Redis is a key-value database that can store data in memory and is very fast. We can use it to store the sessions of all users.
 - For storing images and other BLOBs we could use S3 storage like MinIO for example.
@@ -140,12 +141,12 @@ To handle high availability we need use several strategies:
 - We need to use at least 3 replicas of each service to handle high availability. If one of the services goes down, the other replicas will handle the load.
 - We should use a load balancer to distribute the load between all the replicas of the services.
 - We should use at least 3 replicas of each database to handle high availability. If one of the databases goes down, the other replicas will handle the load.
-- To handle SLA: 99.99% we need to use active monitoring of all services and databases and handle all errors as soon as possible. Also we should deploy all services in different availability zones to handle the load if one of the availability zones goes down.
+- To handle SLA: 99.99% we need to use active monitoring of all services and databases. Also we should deploy all services in different availability zones to handle the load if one of the availability zones goes down.
 
 To scale our system we should do the following:
-- We should scale our services horizontally. We can use Kubernetes to scale our services automatically depending on the load. Kubernetes can handle a large number of containers and scale them automatically.
+- We should scale our services horizontally. We can use Kubernetes to scale our services automatically depending on the load. 
 - We could use Kafka partitions to handle the load between all the Kafka brokers. Kafka can handle a large amount of data and can scale horizontally by adding more brokers.
-- We could use PostgreSQL sharding to handle the load between all the PostgreSQL instances. PostgreSQL can handle a large amount of data and can scale horizontally by adding more instances.
+- We could use PostgreSQL sharding to handle the load between all the PostgreSQL instances. 
 - S3 storage can handle a large amount of data and can scale horizontally by adding more storage nodes by default.
 
 To handle high performance about 3800 RPS for reading and 350RPS for writing we need to use the following strategies:
