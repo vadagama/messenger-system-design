@@ -96,7 +96,7 @@ Based on the above calculations, we can estimate the bandwidth required for our 
 ## Step 1 - simple design
 Here is a basic diagram of the components to start with:
 
-![Basic diagram](images\first_step.png)
+![Basic diagram](images/first_step.png)
 
 - **Message service** will be responsible for sending and receiving messages. 
 - **Statuses service** will be usefull for getting statuses of messages and users. 
@@ -135,7 +135,7 @@ Here is a more detailed diagram of the components:
 - For storing images and other BLOBs we could use S3 storage like MinIO for example.
 
 Here is the diagram with more technical details:
-![Diagram with technical details](images\second_step.png)
+![Diagram with technical details](images/second_step.png)
 
 ## Step 3 - design with scaling and high availability
 To handle high availability we need use several strategies:
