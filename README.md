@@ -181,7 +181,7 @@ Here is a list of APIs that we will need to implement:
 - GET /channels/{channel_id}/messages
 - POST /channels/{channel_id}/message
 
-Some additional details provided in the [APIS](APIS.md) file.
+Some additional details provided in the [APIS](apis.md) file.
 
 # Message broker events
 Here is a list of events that we will need to implement:
