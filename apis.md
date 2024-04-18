@@ -15,7 +15,7 @@
 
 ### POST /register
 *Method to register a user*
-``` json
+``` javascript
 Request: {
     "email": string,
     "login": string, 
@@ -26,7 +26,7 @@ Request: {
 
 ### POST /login
 *Method to login*
-``` json
+``` javascript
 Request: {
     "login": string,
     "password": string
@@ -34,7 +34,7 @@ Request: {
 ```
 ### GET /users/{user_id}
 *Method to get a user*
-``` json
+``` javascript
 Response: {
     "id": string,
     "email": string,
@@ -56,7 +56,7 @@ Response: {
 
 ### POST /messages 
 *Method to send a message*
-``` json
+``` javascript
 Request :{
     "chat_id": string,
     "sender_id": string,
@@ -73,7 +73,7 @@ Request :{
 
 ###  GET /chat/{chat_id}/messages 
 *Method to get messages*
-``` json
+``` javascript
 Response: {
     [{message_ids}]
 }
@@ -81,7 +81,7 @@ Response: {
 
 ### GET /messages/{message_id}
 *Method to get a singlemessage*
-``` json
+``` javascript
 Response: {
     "id": string,
     "sender_id": string,
@@ -98,7 +98,7 @@ Response: {
 
 ### POST /groups
 *Method to create a group*
-``` json
+``` javascript
 Request: {
     "id": string,
     "name": string,
@@ -108,7 +108,7 @@ Request: {
 
 ### GET /groups/{group_id}/messages
 *Method to get messages from a group*
-``` json
+``` javascript
 Response: {
     "id": string,
     "sender_id": string,
@@ -125,7 +125,7 @@ Response: {
 
 ### POST /channels
 *Method to create a channel*
-``` json
+``` javascript
 Request: {
     "name": string,
     "users": [{user_ids}]
@@ -134,7 +134,7 @@ Request: {
 
 ### GET /channels/{channel_id}/messages
 *Method to get messages from a channel*
-``` json
+``` javascript
 Response: {
     "id": string,
     "sender_id": string,
