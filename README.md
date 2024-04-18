@@ -73,9 +73,7 @@ Lets assume that we have about 10K groups with 50 users in each group and 1K cha
 - Total channel messages per day: 1K * 1K = 1M
 - Total amount of channel messages per second: 1M / 86400 = 12 RPS
 
-Total amount: 7000 + 1200 + 12 = 8200 RPS
-
-- Total messages from groups per day:  
+Total amount: 7000 + 1200 + 12 = 8200 RPS 
 
 ## Storage
 Lets assume that we have 3M active users and every user writes and reads 10 messages per day. This means that we will have the following amount of data:
