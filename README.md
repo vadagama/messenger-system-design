@@ -6,7 +6,6 @@
 - [Capacity estimation and constraints](#capacity-estimation-and-constraints)
   - [Bandwidth](#bandwidth)
   - [Storage](#storage)
-  - [Bandwidth](#bandwidth-1)
 - [Component diagram](#component-diagram)
   - [Step 1 - simple design](#step-1---simple-design)
   - [Step 2 - design with some technical details](#step-2---design-with-some-technical-details)
@@ -87,9 +86,6 @@ Lets assume that we have 3M active users and every user writes and reads 10 mess
 | Text with 3x replicas   | 4TB   | 117TB   | 2PB    |
 | Images withous replicas | 3.5PB | 105PB   | 1260PB |
 | Images with 3x replicas | 10PB  | 300PB   | 3.6EB  |
-
-## Bandwidth
-Based on the above calculations, we can estimate the bandwidth required for our system. We will need to handle the following amount of text and images data: 5100MBit/s
 
 # Component diagram
 ## Step 1 - simple design
