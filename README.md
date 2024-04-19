@@ -128,9 +128,10 @@ Here is a more detailed diagram of the components:
 - Load balancer will be used to distribute the load between all the services.
 - We could use Apache Kafka as a message broker. It is a distributed streaming platform that can handle trillions of events a day. And also we could use different patterns like pub/sub and queue using Kafka. The next benefit is that Kafka is a distributed log and we can store all events in Kafka for a long time (depending on retention time settings).
 - We could deploy all services in Docker containers and orchestrate them using Kubernetes. It can handle a large number of containers and scale them automatically depending our needs.
-- For message storage we can use PostgreSQL. It is an RDBMS database that can store data in structured form and JSON documents. It is very fast and can handle large amounts of data. We can use it to store all messages.
-- For storing channels and groups data we also can use PostgreSQL and store all channels data in a separate collection in PostgreSQL.
-- We could use Redis as a session storage. Redis is a key-value database that can store data in memory and is very fast. We can use it to store the sessions of all users.
+- For message storage we can use MongoDB. It is an NoSQL database that can store data in JSON documents. It is very fast and can handle large amounts of data. We can use it to store all messages. Here is the additional information about its limits - [MongoDB limits] (https://www.mongodb.com/docs/manual/reference/limits/)
+- For storing groups data we also can use MongoDB and store all channels data in a separate collection in MongoDB.
+- For storing channels we only need to associate channel_id with collection of user_ids and its perfect candidate for key-value storage like Redis.
+- We could also could use Redis as a session storage. 
 - For storing images and other BLOBs we could use S3 storage like MinIO for example.
 
 Here is the diagram with more technical details:
@@ -146,7 +147,7 @@ To handle high availability we need use several strategies:
 To scale our system we should do the following:
 - We should scale our services horizontally. We can use Kubernetes to scale our services automatically depending on the load. 
 - We could use Kafka partitions to handle the load between all the Kafka brokers. Kafka can handle a large amount of data and can scale horizontally by adding more brokers.
-- We could use PostgreSQL sharding to handle the load between all the PostgreSQL instances. 
+- We could use MongoDB sharding to handle the load between all the MongoDB. 
 - S3 storage can handle a large amount of data and can scale horizontally by adding more storage nodes by default.
 
 To handle high performance about 3800 RPS for reading and 350RPS for writing we need to use the following strategies:
